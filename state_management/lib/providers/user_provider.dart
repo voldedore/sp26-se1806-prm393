@@ -1,5 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:state_management/models/user.dart';
+
+// File hiện tại (user_provider.dart) có 1 phần code
+// nằm trong file 'user_provider.g.dart'
+// Lưu ý naming convention tên file output (.g.dart)
+// có phần đầu giống file hiện tại
+part 'user_provider.g.dart';
 
 List<User> allUsers = [
   User(id: 1, name: 'John', email: 'jon@mail.com'),
@@ -11,6 +18,17 @@ List<User> allUsers = [
 ];
 
 // Provider (cung cấp) các dự liệu user
-final userProvider = Provider((ref){
+// Manual
+// final userProvider = Provider((ref){
+//   return allUsers;
+// });
+
+// Dùng Riverpod Generator
+// Naming convention -> generator lấy tên của fn + suffix Provider
+// user(ref) ----> userProvider
+@riverpod
+List<User> user(ref) {
   return allUsers;
-});
+}
+
+// Dùng lenh dart run build_runner build de build ra file user_provider.g.dart

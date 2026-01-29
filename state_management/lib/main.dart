@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
       ),
       home: LoginScreen(),
-      routes: {'/home': (context) => HomeStlss()},
+      routes: {'/home': (context) => HomeScreen()},
     );
   }
 }
