@@ -41,7 +41,7 @@ class DatabaseHelper {
   // fn de init db (tao bang)
   Future<void> _onCreate(Database db, int version) async {
     // Cau lenh tao bang
-    // Autoincrement = identity
+    // Autoincrement ~ SQL Server identity cơ chế tự tăng
     await db.execute('''
       CREATE TABLE $_noteTableName (
         id INTEGER PRIMARY KEY AUTOINCREMENT, 
